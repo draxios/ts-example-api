@@ -1,0 +1,19 @@
+{
+  "name": "my-lambda-function",
+  "version": "1.0.0",
+  "description": "Lambda function to create repositories in Azure DevOps",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "zip": "cd dist && zip -r function.zip ."
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "@aws-sdk/client-secrets-manager": "^3.25.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.5",
+    "@types/node": "^14.14.22",
+    "@types/aws-lambda": "^8.10.72"
+  }
+}
