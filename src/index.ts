@@ -2,8 +2,10 @@ import axios from 'axios';
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
 
-// Initialize the Secrets Manager client
-const secretsManagerClient = new SecretsManagerClient({ region: 'us-east-1' });
+// Initialize the Secrets Manager client with dynamic region
+const secretsManagerClient = new SecretsManagerClient({
+    region: process.env.AWS_REGION || 'us-east-1' // Default to 'us-east-1' if not specified
+});
 
 export const handler: APIGatewayProxyHandler = async (event) => {
     // Parse the input from the event body
